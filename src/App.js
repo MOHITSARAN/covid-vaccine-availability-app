@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App mainContainer">
         <form onSubmit={this.handleSubmit}>
           Enter Pincode:{" "}
           <input value={this.state.term} onChange={this.onChange} />
@@ -56,6 +56,9 @@ class App extends Component {
             ))}
           </tbody>
         </table>
+        <footer id="footer">
+          <h3>Find vaccination slots available in your pin code - Mohit</h3>
+        </footer>
       </div>
     );
   }

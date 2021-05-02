@@ -3,6 +3,15 @@
   font-family: arial, sans-serif;
 }
 
+#footer {
+  text-align: center;
+  height: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #4bb04f;
+}
+
 form {
   margin: 0 auto;
   width: 250px;

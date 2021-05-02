@@ -14,8 +14,15 @@ async function getSlotsForDate(PINCODE, DATE) {
     },
   };
 
-  const response = await axios(config);
-  return response;
+  return axios(config)
+    .then(function (response) {
+      return response;
+    })
+    .catch(function (error) {
+      alert("Please enter valid Pincode!!!");
+      window.location.reload();
+      return Promise.reject(error);
+    });
 }
 
 async function fetchNext10Days() {
