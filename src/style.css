@@ -3,10 +3,14 @@
   font-family: arial, sans-serif;
 }
 
+.mainContainer {
+  min-height: 1000px;
+}
+
 #footer {
   text-align: center;
-  height: 5px;
-  position: absolute;
+  height: 3px;
+  position: relative;
   bottom: 0;
   width: 100%;
   background: #4bb04f;
@@ -23,6 +27,7 @@ form {
   font-size: 8px;
   border: 3px solid #ddd;
   width: 100%;
+  height: 100%;
 }
 
 #tab td,

@@ -8,56 +8,70 @@ class App extends Component {
     this.state = {
       pin: 0,
       result: [],
+      loading: "",
     };
   }
 
-  onChange = (event) => {
+  onChange = event => {
     this.setState({ pin: event.target.value });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
+    this.setState({ loading: "loading..." });
     const results = await checkAvailability(parseInt(this.state.pin));
+    if (results.length == 0) {
+      alert("No record found!!");
+      window.location.reload();
+    }
     this.setState({ result: results });
+    this.setState({ loading: "" });
   };
 
   render() {
     return (
-      <div className="App mainContainer">
+      <div className='App'>
         <form onSubmit={this.handleSubmit}>
           Enter Pincode:{" "}
           <input value={this.state.term} onChange={this.onChange} />
           <button>Search!</button>
         </form>
         <br></br>
-        <table id="tab">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Name</th>
-              <th>Time</th>
-              <th>Available Capacity</th>
-              <th>Vaccine</th>
-              <th>Slots</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.result.map((element, index) => (
-              <tr key={index}>
-                <td>{element.date}</td>
-                <td>{element.name}</td>
-                <td>
-                  {element.from} - {element.to}
-                </td>
-                <td>{element.available_capacity}</td>
-                <td>{element.vaccine}</td>
-                <td>{element.slots}</td>
+        <div className='mainContainer'>
+          <table id='tab'>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Available Capacity</th>
+                <th>Vaccine</th>
+                <th>Slots</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <footer id="footer">
-          <h3>Find vaccination slots available in your pin code - Mohit</h3>
+            </thead>
+            <tbody>
+              {this.state.result.map((element, index) => (
+                <tr key={index}>
+                  <td>{element.date}</td>
+                  <td>{element.name}</td>
+                  <td>
+                    {element.from} - {element.to}
+                  </td>
+                  <td>{element.available_capacity}</td>
+                  <td>{element.vaccine}</td>
+                  <td>{element.slots}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {this.state.loading}
+        </div>
+        <br></br>
+
+        <footer id='footer'>
+          <h3>
+            Find vaccination slots available in your pincode - Mohit Saran
+          </h3>
         </footer>
       </div>
     );
