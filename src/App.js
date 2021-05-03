@@ -22,7 +22,7 @@ class App extends Component {
     event.preventDefault();
     this.setState({ result: [] });
     this.setState({
-      loading: "Searching vaccination centers available for next 30 days...",
+      loading: "Searching vaccination centres available for next 30 days...",
     });
     const results = await checkAvailability(parseInt(this.state.pin));
     if (results.length == 0) {
@@ -139,7 +139,7 @@ class App extends Component {
 
         <footer id='footer'>
           <h4 className='foot'>
-            Find vaccination centers available in nearby - Mohit Saran
+            Find vaccination centres available in nearby - Mohit Saran
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
