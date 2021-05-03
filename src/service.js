@@ -25,7 +25,7 @@ async function getSlotsForDate(PINCODE, DATE) {
     });
 }
 
-async function fetchNext10Days() {
+async function fetchNext30Days() {
   let dates = [];
   let today = moment();
   for (let i = 0; i < 30; i++) {
@@ -38,14 +38,14 @@ async function fetchNext10Days() {
 
 async function checkAvailability(pin) {
   var slotListArray = [];
-  let datesArray = await fetchNext10Days();
+  let datesArray = await fetchNext30Days();
 
   const getSlots = async () => {
     for (let i = 0; i <= datesArray.length; i++) {
       const output = await getSlotsForDate(pin, datesArray[i]);
       let sessions = output.data.sessions;
       let validSlots = sessions.filter(
-        (slot) => slot.min_age_limit > "18" && slot.available_capacity > 0
+        slot => slot.min_age_limit >= "18" && slot.available_capacity > 0
       );
       if (validSlots.length) {
         slotListArray.push(validSlots[0]);

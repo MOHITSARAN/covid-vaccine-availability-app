@@ -18,7 +18,7 @@ class App extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    this.setState({ loading: "loading..." });
+    this.setState({ loading: "Searching slots for next 30 days..." });
     const results = await checkAvailability(parseInt(this.state.pin));
     if (results.length == 0) {
       alert("No record found!!");
@@ -34,7 +34,7 @@ class App extends Component {
         <form onSubmit={this.handleSubmit}>
           Enter Pincode:{" "}
           <input value={this.state.term} onChange={this.onChange} />
-          <button>Search!</button>
+          <button>Search</button>
         </form>
         <br></br>
         <div className='mainContainer'>
@@ -45,8 +45,10 @@ class App extends Component {
                 <th>Name</th>
                 <th>Time</th>
                 <th>Available Capacity</th>
+                <th>Min Age Limit</th>
                 <th>Vaccine</th>
                 <th>Slots</th>
+                <th>Book</th>
               </tr>
             </thead>
             <tbody>
@@ -57,9 +59,26 @@ class App extends Component {
                   <td>
                     {element.from} - {element.to}
                   </td>
-                  <td>{element.available_capacity}</td>
+                  <td>
+                    {element.available_capacity > 40 ? (
+                      <span className='green'>
+                        {element.available_capacity}
+                      </span>
+                    ) : (
+                      <span className='red'>{element.available_capacity}</span>
+                    )}
+                  </td>
+                  <td>{element.min_age_limit}</td>
                   <td>{element.vaccine}</td>
                   <td>{element.slots}</td>
+                  <td>
+                    <a
+                      href='https://selfregistration.cowin.gov.in/appointment'
+                      target='__blank'
+                    >
+                      Book Now
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody>

@@ -4,7 +4,23 @@
 }
 
 .mainContainer {
-  min-height: 1000px;
+  min-height: 800px;
+}
+
+.red {
+  color: white;
+  padding: 0px 3px 0px 3px;
+  background-color: red;
+  border-style: hidden;
+  border-radius: 2px;
+}
+
+.green {
+  color: white;
+  padding: 0px 3px 0px 3px;
+  background-color: green;
+  border-style: hidden;
+  border-radius: 2px;
 }
 
 #footer {
