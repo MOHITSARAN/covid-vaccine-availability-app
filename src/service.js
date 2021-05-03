@@ -62,12 +62,11 @@ async function checkAvailability(pin) {
   const getSlots = async () => {
     for (let i = 0; i <= datesArray.length; i++) {
       const output = await getSlotsForDate(pin, datesArray[i]);
-      let sessions = output.data.sessions;
-      let validSlots = sessions.filter(
-        slot => slot.min_age_limit >= "18" && slot.available_capacity >= 0
-      );
+      let validSlots = output.data.sessions;
       if (validSlots.length) {
-        slotListArray.push(validSlots[0]);
+        validSlots.forEach(function (entry) {
+          slotListArray.push(entry);
+        });
       }
     }
     return slotListArray;
