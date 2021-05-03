@@ -77,7 +77,7 @@ class App extends Component {
                       href={`https://www.google.com/maps/search/${element.name} ${element.pincode}`}
                       target='__blank'
                     >
-                      <i class='fas'>&#xf124;</i>
+                      <i className='fas'>&#xf124;</i>
                     </a>
                   </td>
                   <td>
@@ -97,8 +97,15 @@ class App extends Component {
         <br></br>
 
         <footer id='footer'>
-          <h3>
+          <h3 className='foot'>
             Find vaccination slots available in your pincode - Mohit Saran
+            <img
+              src='https://hitwebcounter.com/counter/counter.php?page=7807634&style=0025&nbdigits=5&type=ip&initCount=0'
+              title='Free Counter'
+              Alt='web counter'
+              border='0'
+              className='visit'
+            />
           </h3>
         </footer>
       </div>

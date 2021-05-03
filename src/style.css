@@ -7,6 +7,15 @@
   min-height: 800px;
 }
 
+.visit {
+  float: right;
+}
+
+.foot {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .red {
   color: white;
   padding: 0px 3px 0px 3px;
