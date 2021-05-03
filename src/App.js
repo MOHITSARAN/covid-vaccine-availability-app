@@ -27,7 +27,7 @@ class App extends Component {
     const results = await checkAvailability(parseInt(this.state.pin));
     if (results.length == 0) {
       alert(
-        "No slots available for the next 15/30 days for the given Pincode!!"
+        "No slots available for the given pincode please check after some time."
       );
       window.location.reload();
     }
