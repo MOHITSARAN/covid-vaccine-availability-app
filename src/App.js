@@ -48,6 +48,7 @@ class App extends Component {
                 <th>Min Age Limit</th>
                 <th>Vaccine</th>
                 <th>Slots</th>
+                <th>Location</th>
                 <th>Book</th>
               </tr>
             </thead>
@@ -71,6 +72,14 @@ class App extends Component {
                   <td>{element.min_age_limit}</td>
                   <td>{element.vaccine}</td>
                   <td>{element.slots}</td>
+                  <td>
+                    <a
+                      href={`https://www.google.com/maps/search/${element.name} ${element.pincode}`}
+                      target='__blank'
+                    >
+                      <i class='fas'>&#xf124;</i>
+                    </a>
+                  </td>
                   <td>
                     <a
                       href='https://selfregistration.cowin.gov.in/appointment'
