@@ -44,6 +44,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <div class='nav'>
+          <div class='nav-header'>
+            <div class='nav-title'>
+              <span>Vaccination Centres Finder</span>
+            </div>
+          </div>
+        </div>
         <br></br>
         <div className='info'>
           <form className='search' onSubmit={this.handleSubmit}>
@@ -63,11 +70,11 @@ class App extends Component {
           <div className='chip'>
             Total Vaccination Doses{" "}
             {new Intl.NumberFormat("en-IN", {
-              maximumSignificantDigits: 3,
+              maximumSignificantDigits: 8,
             }).format(this.state.total_doses)}{" "}
-            | Today's Vaccination Doses{" "}
+            | Today's Vaccination{" "}
             {new Intl.NumberFormat("en-IN", {
-              maximumSignificantDigits: 3,
+              maximumSignificantDigits: 8,
             }).format(this.state.today_doses)}
           </div>
         </div>
@@ -139,7 +146,7 @@ class App extends Component {
 
         <footer id='footer'>
           <h4 className='foot'>
-            Find vaccination centres available in nearby - Mohit Saran
+            Find vaccination centres available in nearby - <i>Mohit Saran</i>
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
