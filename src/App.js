@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pin: 302015,
+      pin: 0,
       result: [],
       loading: "",
       total_doses: 0,
