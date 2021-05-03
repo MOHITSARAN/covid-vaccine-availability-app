@@ -23,7 +23,9 @@ class App extends Component {
     this.setState({ loading: "Searching slots for next 30 days..." });
     const results = await checkAvailability(parseInt(this.state.pin));
     if (results.length == 0) {
-      alert("No record found!!");
+      alert(
+        "No slots available for the next 15/30 days for the given Pincode!!"
+      );
       window.location.reload();
     }
     this.setState({ result: results });
