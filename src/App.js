@@ -100,7 +100,7 @@ class App extends Component {
           <h3 className='foot'>
             Find vaccination slots available in your pincode - Mohit Saran
             <img
-              src='https://hitwebcounter.com/counter/counter.php?page=7807634&style=0025&nbdigits=5&type=ip&initCount=0'
+              src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
               Alt='web counter'
               border='0'
