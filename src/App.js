@@ -20,6 +20,7 @@ class App extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
+    this.setState({ result: [] });
     this.setState({ loading: "Searching slots for next 30 days..." });
     const results = await checkAvailability(parseInt(this.state.pin));
     if (results.length == 0) {
@@ -57,8 +58,14 @@ class App extends Component {
           <br></br>
 
           <div className='chip'>
-            Total Vaccination Doses {this.state.total_doses} | Today's
-            Vaccination Doses {this.state.today_doses}
+            Total Vaccination Doses{" "}
+            {new Intl.NumberFormat("en-IN", {
+              maximumSignificantDigits: 3,
+            }).format(this.state.total_doses)}{" "}
+            | Today's Vaccination Doses{" "}
+            {new Intl.NumberFormat("en-IN", {
+              maximumSignificantDigits: 3,
+            }).format(this.state.today_doses)}
           </div>
         </div>
         <br></br>
