@@ -1,6 +1,25 @@
 const moment = require("moment");
 const axios = require("axios");
 
+async function getTotalDose() {
+  let config = {
+    method: "get",
+    url: "https://cdn-api.co-vin.in/api/v1/reports/v2/getPublicReports",
+    headers: {
+      accept: "application/json",
+    },
+  };
+
+  return axios(config)
+    .then(function (response) {
+      return response.data.topBlock.vaccination;
+    })
+    .catch(function (error) {
+      console.log(error);
+      return Promise.reject(error);
+    });
+}
+
 async function getSlotsForDate(PINCODE, DATE) {
   let config = {
     method: "get",
@@ -28,7 +47,7 @@ async function getSlotsForDate(PINCODE, DATE) {
 async function fetchNext30Days() {
   let dates = [];
   let today = moment();
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i <= 30; i++) {
     let dateString = today.format("DD-MM-YYYY");
     dates.push(dateString);
     today.add(1, "day");
@@ -57,4 +76,4 @@ async function checkAvailability(pin) {
   return respslot;
 }
 
-export default checkAvailability;
+export { checkAvailability, getTotalDose };

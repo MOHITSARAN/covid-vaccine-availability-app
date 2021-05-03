@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import checkAvailability from "./service";
+import { checkAvailability, getTotalDose } from "./service";
 import "./style.css";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pin: 110001,
+      pin: 302015,
       result: [],
       loading: "",
+      total_doses: 0,
+      today_doses: 0,
     };
   }
 
@@ -28,14 +30,35 @@ class App extends Component {
     this.setState({ loading: "" });
   };
 
+  async componentDidMount() {
+    var total = await getTotalDose();
+    this.setState({ total_doses: total.total_doses });
+    this.setState({ today_doses: total.today });
+  }
+
   render() {
     return (
       <div className='App'>
-        <form onSubmit={this.handleSubmit}>
-          Enter Pincode:{" "}
-          <input value={this.state.term} onChange={this.onChange} />
-          <button>Search</button>
-        </form>
+        <div className='info'>
+          <form className='search' onSubmit={this.handleSubmit}>
+            <input
+              type='number'
+              className='searchTerm'
+              value={this.state.term}
+              onChange={this.onChange}
+              placeholder='Enter Pincode'
+            />
+            <button type='submit' className='searchButton'>
+              <i className='material-icons searchSize'>&#xe8b6;</i>
+            </button>
+          </form>
+          <br></br>
+
+          <div className='chip'>
+            Total Vaccination Doses {this.state.total_doses} | Today's
+            Vaccination Doses {this.state.today_doses}
+          </div>
+        </div>
         <br></br>
         <div className='mainContainer'>
           <table id='tab'>

@@ -11,6 +11,26 @@
   float: right;
 }
 
+.chip {
+  width: 380px;
+  color: #4c7caf;
+  margin: 0 auto;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 13px;
+  line-height: 50px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 .foot {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -48,6 +68,11 @@ form {
 
 .size {
   font-size: 13px;
+}
+
+.searchSize {
+  font-size: 21px;
+  padding-top: 5px;
 }
 
 #tab {
@@ -90,4 +115,44 @@ form {
   text-align: center;
   background-color: #4caf50;
   color: white;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.search {
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #4bb04f;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.searchButton:focus {
+  border: 1px solid #4bb04f;
+}
+
+.searchButton {
+  height: 36px;
+  border: 1px solid #4bb04f;
+  background: #4bb04f;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
