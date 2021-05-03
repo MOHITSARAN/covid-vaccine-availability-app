@@ -4,7 +4,7 @@
 }
 
 .mainContainer {
-  min-height: 800px;
+  min-height: 700px;
 }
 
 .visit {
@@ -102,7 +102,7 @@ form {
   #tab {
     text-align: center;
     border-collapse: collapse;
-    font-size: 8px;
+    font-size: 9px;
     border: 3px solid #ddd;
     width: 100%;
     height: 100%;
@@ -112,7 +112,7 @@ form {
 #tab td,
 #tab th {
   border: 1px solid #ddd;
-  padding: 3px;
+  padding: 5px;
 }
 
 #tab tr:nth-child(even) {

@@ -21,7 +21,9 @@ class App extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     this.setState({ result: [] });
-    this.setState({ loading: "Searching slots for next 30 days..." });
+    this.setState({
+      loading: "Searching vaccination centers available for next 30 days...",
+    });
     const results = await checkAvailability(parseInt(this.state.pin));
     if (results.length == 0) {
       alert(
@@ -42,6 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <br></br>
         <div className='info'>
           <form className='search' onSubmit={this.handleSubmit}>
             <input
@@ -75,11 +78,10 @@ class App extends Component {
               <tr>
                 <th>Date</th>
                 <th>Name</th>
-                <th>Time</th>
                 <th>Available Capacity</th>
                 <th>Min Age Limit</th>
                 <th>Vaccine</th>
-                <th>Slots</th>
+                <th>Slot Timings</th>
                 <th>Location</th>
                 <th>Book</th>
               </tr>
@@ -89,9 +91,7 @@ class App extends Component {
                 <tr key={index}>
                   <td>{element.date}</td>
                   <td>{element.name}</td>
-                  <td>
-                    {element.from} - {element.to}
-                  </td>
+
                   <td>
                     {element.available_capacity > 40 ? (
                       <span className='green'>
@@ -103,7 +103,16 @@ class App extends Component {
                   </td>
                   <td>{element.min_age_limit}</td>
                   <td>{element.vaccine}</td>
-                  <td>{element.slots}</td>
+                  <td>
+                    {element.slots.map(function (name, index) {
+                      return (
+                        <span className='space' key={index}>
+                          {" "}
+                          {name}{" "}
+                        </span>
+                      );
+                    })}
+                  </td>
                   <td>
                     <a
                       href={`https://www.google.com/maps/search/${element.name} ${element.pincode}`}
@@ -129,8 +138,8 @@ class App extends Component {
         <br></br>
 
         <footer id='footer'>
-          <h3 className='foot'>
-            Find vaccination slots available in your pincode - Mohit Saran
+          <h4 className='foot'>
+            Find vaccination centers available in nearby - Mohit Saran
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
@@ -138,7 +147,7 @@ class App extends Component {
               border='0'
               className='visit'
             />
-          </h3>
+          </h4>
         </footer>
       </div>
     );
