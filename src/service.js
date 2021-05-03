@@ -45,7 +45,7 @@ async function checkAvailability(pin) {
       const output = await getSlotsForDate(pin, datesArray[i]);
       let sessions = output.data.sessions;
       let validSlots = sessions.filter(
-        slot => slot.min_age_limit >= "18" && slot.available_capacity > 0
+        slot => slot.min_age_limit >= "18" && slot.available_capacity >= 0
       );
       if (validSlots.length) {
         slotListArray.push(validSlots[0]);

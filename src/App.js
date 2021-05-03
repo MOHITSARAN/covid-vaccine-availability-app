@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pin: 0,
+      pin: 110001,
       result: [],
       loading: "",
     };
@@ -77,7 +77,7 @@ class App extends Component {
                       href={`https://www.google.com/maps/search/${element.name} ${element.pincode}`}
                       target='__blank'
                     >
-                      <i className='fas'>&#xf124;</i>
+                      <i className='material-icons size'>&#xe569;</i>
                     </a>
                   </td>
                   <td>
@@ -102,7 +102,7 @@ class App extends Component {
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
-              Alt='web counter'
+              alt='web counter'
               border='0'
               className='visit'
             />
