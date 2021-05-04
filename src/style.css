@@ -45,6 +45,11 @@ body {
   background-color: #f1f1f1;
 }
 
+.loading {
+  padding-left: 10px;
+  color: #1f7386;
+}
+
 @media only screen and (max-width: 600px) {
   .chip {
     width: 77%;

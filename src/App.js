@@ -140,7 +140,7 @@ class App extends Component {
               ))}
             </tbody>
           </table>
-          {this.state.loading}
+          <span className='loading'>{this.state.loading}</span>
         </div>
         <br></br>
 
