@@ -88,7 +88,6 @@ class App extends Component {
                 <th>Available Capacity</th>
                 <th>Min Age Limit</th>
                 <th>Vaccine</th>
-                <th>Slot Timings</th>
                 <th>Location</th>
                 <th>Book</th>
               </tr>
@@ -110,16 +109,6 @@ class App extends Component {
                   </td>
                   <td>{element.min_age_limit}</td>
                   <td>{element.vaccine}</td>
-                  <td>
-                    {element.slots.map(function (name, index) {
-                      return (
-                        <span className='space' key={index}>
-                          {" "}
-                          {name}{" "}
-                        </span>
-                      );
-                    })}
-                  </td>
                   <td>
                     <a
                       href={`https://www.google.com/maps/search/${element.name} ${element.pincode}`}
@@ -146,7 +135,8 @@ class App extends Component {
 
         <footer id='footer'>
           <h4 className='foot'>
-            Find vaccination centres available in nearby - <i>Mohit Saran</i>
+            Find vaccination centres available in nearby<br></br>
+            <i>Mohit Saran</i>
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
