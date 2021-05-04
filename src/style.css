@@ -15,7 +15,8 @@ body {
 
 .nav > .nav-header > .nav-title {
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
+  padding-top: 3px;
   color: #fff;
 }
 
