@@ -47,7 +47,7 @@ class App extends Component {
         <div class='nav'>
           <div class='nav-header'>
             <div class='nav-title'>
-              <span>Vaccination Centres Finder</span>
+              <span>Covid Vaccine Availability Finder</span>
             </div>
           </div>
         </div>
