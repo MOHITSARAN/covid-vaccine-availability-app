@@ -149,7 +149,7 @@ table th {
 .green {
   color: white;
   padding: 0px 3px 0px 3px;
-  background-color: green;
+  background-color: #004990;
   border-style: hidden;
   border-radius: 2px;
 }
@@ -166,6 +166,7 @@ form {
 .searchSize {
   font-size: 21px;
   padding-top: 5px;
+  color: white;
 }
 
 #tab {
@@ -204,7 +205,7 @@ form {
   padding-top: 8px;
   padding-bottom: 8px;
   text-align: center;
-  background-color: #4caf50;
+  background-color: #004990;
   color: white;
 }
 
@@ -217,7 +218,7 @@ form {
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #4bb04f;
+  border: 3px solid #004990;
   border-right: none;
   padding: 5px;
   height: 20px;
@@ -226,13 +227,13 @@ form {
 }
 
 .searchButton:focus {
-  border: 1px solid #4bb04f;
+  border: 1px solid #004990;
 }
 
 .searchButton {
   height: 36px;
-  border: 1px solid #4bb04f;
-  background: #4bb04f;
+  border: 1px solid #004990;
+  background: #004990;
   text-align: center;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
