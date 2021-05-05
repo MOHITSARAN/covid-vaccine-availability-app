@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pin: 302015,
+      pin: 0,
       result: [],
       loading: "Only vaccine available addresses will be listed below. ",
       total_doses: 0,
@@ -69,7 +69,6 @@ class App extends Component {
       );
       var timer = setInterval(async () => {
         let alert = await checkAvailability(parseInt(this.state.pin));
-        this.playAlert();
         if (alert.length > 0) {
           //this.speak("Hi, Vaccination centre is available in you area!");
           this.playAlert();
