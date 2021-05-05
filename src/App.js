@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pin: 0,
+      pin: 302015,
       result: [],
       loading: "Only vaccine available addresses will be listed below. ",
       total_doses: 0,
@@ -18,21 +18,71 @@ class App extends Component {
     this.setState({ pin: event.target.value });
   };
 
+  // say a message
+  speak = (text, callback) => {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = "en-US";
+
+    u.onend = function () {
+      if (callback) {
+        callback();
+      }
+    };
+
+    u.onerror = function (e) {
+      if (callback) {
+        callback(e);
+      }
+    };
+
+    speechSynthesis.speak(u);
+  };
+
+  clearState = args => {
+    this.setState({
+      loading: args,
+    });
+  };
+
+  playAlert = () => {
+    var audio = new Audio(
+      "http://onj3.andrelouis.com/phonetones/unzipped/Meizu%20MX4/notifications/Tunnel.mp3"
+    );
+    audio.play();
+  };
+
   handleSubmit = async event => {
     event.preventDefault();
     this.setState({ result: [] });
     this.setState({
-      loading: "Searching vaccination centres available for next 30 days...",
+      loading: "Searching vaccination centres available for next 7 days...",
     });
     const results = await checkAvailability(parseInt(this.state.pin));
+
     if (results.length == 0) {
       alert(
-        "No slots available for the given pincode please check after some time."
+        "No slots available for the given pincode right now.\n\nDon't close the browser if vaccine is available, you will be notified by sound."
       );
-      window.location.reload();
+      this.clearState(
+        "You can minimize the browser if vaccine is available, you will be notified by sound."
+      );
+      var timer = setInterval(async () => {
+        let alert = await checkAvailability(parseInt(this.state.pin));
+        if (alert.length > 0) {
+          this.speak("Hi, Vaccination centre is available in you area!");
+          clearInterval(timer);
+          this.setState({
+            loading: "",
+          });
+        }
+      }, 120000);
+    } else {
+      this.clearState("");
+      this.speak("Hi, Vaccination centre is available in you area!");
     }
+
     this.setState({ result: results });
-    this.setState({ loading: "" });
   };
 
   async componentDidMount() {
@@ -45,8 +95,8 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='nav'>
-          <div class='nav-header'>
-            <div class='nav-title'>
+          <div className='nav-header'>
+            <div className='nav-title'>
               <span>Covid Vaccine Availability Finder</span>
             </div>
           </div>
