@@ -52,7 +52,6 @@ class App extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    var timer;
     this.setState({ result: [] });
     this.setState({
       loading: "Searching vaccination centres available for next 7 days...",
@@ -66,8 +65,15 @@ class App extends Component {
       this.clearState(
         "You can minimize the browser if vaccine is available, you will be notified by sound."
       );
-      timer = setInterval(async () => {
-        console.log("hii");
+      var timer = setInterval(async () => {
+        let alert = await checkAvailability(parseInt(this.state.pin));
+        if (alert.length > 0) {
+          //this.speak("Hi, Vaccination centre is available in you area!");
+          this.playAlert();
+          this.setState({
+            loading: "",
+          });
+        }
       }, 120000);
     } else {
       this.clearState("");
