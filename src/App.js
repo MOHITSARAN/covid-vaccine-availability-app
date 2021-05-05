@@ -139,8 +139,7 @@ class App extends Component {
             manner. This application is only developed to track the availability
             of vaccination centres available nearby.
             <br></br>
-            <br></br>
-            Credits:{" "}
+            Developer:{" "}
             <i>
               Mohit Saran{" "}
               <a href='https://www.linkedin.com/in/mohitsaran/'>
