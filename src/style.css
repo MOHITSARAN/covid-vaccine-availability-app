@@ -7,6 +7,7 @@ body {
   width: 100%;
   background-color: #1f7386;
   position: relative;
+  border-bottom-style: outset;
 }
 
 .nav > .nav-header {
@@ -26,12 +27,42 @@ body {
 }
 
 .mainContainer {
-  min-height: 550px;
   padding: 7px;
+  margin-bottom: 100px;
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.user {
+  font-size: 14px;
+  position: absolute;
+  padding-left: 4px;
+  color: darkorange;
 }
 
 .visit {
   float: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4%;
+}
+
+@media only screen and (max-width: 600px) {
+  .visit {
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 13%;
+  }
 }
 
 .chip {
@@ -48,6 +79,7 @@ body {
 
 .loading {
   color: #1f7386;
+  line-height: 2;
 }
 
 @media only screen and (max-width: 600px) {
@@ -75,6 +107,11 @@ body {
 .foot {
   padding-top: 10px;
   padding-bottom: 10px;
+  background-color: #1f7386;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  border-top-style: double;
 }
 
 .red {
@@ -91,15 +128,6 @@ body {
   background-color: green;
   border-style: hidden;
   border-radius: 2px;
-}
-
-#footer {
-  text-align: center;
-  height: 3px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  background: #4bb04f;
 }
 
 form {

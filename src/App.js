@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       pin: 0,
       result: [],
-      loading: "",
+      loading: "Only vaccine available addresses will be listed below. ",
       total_doses: 0,
       today_doses: 0,
     };
@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div class='nav'>
+        <div className='nav'>
           <div class='nav-header'>
             <div class='nav-title'>
               <span>Covid Vaccine Availability Finder</span>
@@ -111,7 +111,7 @@ class App extends Component {
                   <td>{element.vaccine}</td>
                   <td>
                     <a
-                      href={`https://www.google.com/maps/search/${element.name} ${element.pincode}`}
+                      href={`https://www.google.com/maps/search/${element.name} ${element.address} ${element.pincode}`}
                       target='__blank'
                     >
                       <i className='material-icons size'>&#xe569;</i>
@@ -134,9 +134,19 @@ class App extends Component {
         <br></br>
 
         <footer id='footer'>
-          <h4 className='foot'>
-            Find vaccination centres available in nearby<br></br>
-            <i>Mohit Saran</i>
+          <div className='foot'>
+            About <br></br>This application in not related/affiliated to
+            cowin.gov.in in any manner. This application is only developed to
+            track the availability of vaccination centres available nearby.
+            <br></br>
+            <br></br>
+            Credits:{" "}
+            <i>
+              Mohit Saran{" "}
+              <a href='https://www.linkedin.com/in/mohitsaran/'>
+                <i className='material-icons user'>&#xe7fd;</i>
+              </a>
+            </i>
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
@@ -144,7 +154,7 @@ class App extends Component {
               border='0'
               className='visit'
             />
-          </h4>
+          </div>
         </footer>
       </div>
     );
