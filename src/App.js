@@ -135,9 +135,9 @@ class App extends Component {
 
         <footer id='footer'>
           <div className='foot'>
-            About <br></br>This application in not related/affiliated to
-            cowin.gov.in in any manner. This application is only developed to
-            track the availability of vaccination centres available nearby.
+            This application in not related/affiliated to cowin.gov.in in any
+            manner. This application is only developed to track the availability
+            of vaccination centres available nearby.
             <br></br>
             <br></br>
             Credits:{" "}
