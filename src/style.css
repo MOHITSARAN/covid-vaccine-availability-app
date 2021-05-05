@@ -3,7 +3,14 @@ body {
 }
 
 .info {
-  margin-top: 35px;
+  margin-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  position: fixed;
+  left: 50%;
+  background-color: white;
+  width: 100%;
+  transform: translate(-50%, 0);
 }
 
 .nav {
@@ -29,6 +36,13 @@ body {
   color: #fff;
 }
 
+table th {
+  position: sticky;
+  top: 166px;
+  z-index: 10;
+  background: #fff;
+}
+
 #title {
   text-align: center;
   font-family: arial, sans-serif;
@@ -37,6 +51,7 @@ body {
 .mainContainer {
   padding: 7px;
   margin-bottom: 100px;
+  margin-top: 140px;
 }
 
 #footer {
