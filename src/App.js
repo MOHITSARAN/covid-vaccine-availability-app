@@ -60,10 +60,10 @@ class App extends Component {
 
     if (results.length == 0) {
       alert(
-        "No slots available for the given pincode right now.\n\nDon't close the browser if vaccine is available, you will be notified by sound."
+        "No slots available for the given pincode right now.\n\nDon't close the browser. You can minimize the browser, if vaccine is available you will be notified by sound."
       );
       this.clearState(
-        "You can minimize the browser if vaccine is available, you will be notified by sound."
+        "You can minimize the browser, if vaccine is available you will be notified by sound."
       );
       var timer = setInterval(async () => {
         let alert = await checkAvailability(parseInt(this.state.pin));
