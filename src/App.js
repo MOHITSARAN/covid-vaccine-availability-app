@@ -69,6 +69,7 @@ class App extends Component {
       );
       var timer = setInterval(async () => {
         let alert = await checkAvailability(parseInt(this.state.pin));
+        this.playAlert();
         if (alert.length > 0) {
           //this.speak("Hi, Vaccination centre is available in you area!");
           this.playAlert();
