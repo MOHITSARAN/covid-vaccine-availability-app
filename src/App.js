@@ -191,7 +191,7 @@ class App extends Component {
               {" "}
               "Lowe’s India Initiative- Powered By ISG-SSDC”
             </span>{" "} */}
-            <i>Developer: Mohit Saran </i>
+            <i>Developer: Mohit Saran (Lowe's ISG-SSDC) </i>
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
