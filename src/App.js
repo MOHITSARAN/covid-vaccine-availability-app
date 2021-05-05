@@ -47,7 +47,7 @@ class App extends Component {
 
   playAlert = () => {
     var audio = new Audio(
-      "http://onj3.andrelouis.com/phonetones/unzipped/Meizu%20MX4/notifications/Tunnel.mp3"
+      "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
     );
     audio.play();
   };
