@@ -46,12 +46,13 @@ class App extends Component {
   };
 
   playAlert = () => {
-    var audio = new Audio("https://cv19as.herokuapp.com/alert.mp3");
+    var audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
     audio.play();
   };
 
   handleSubmit = async event => {
     event.preventDefault();
+    var timer;
     this.setState({ result: [] });
     this.setState({
       loading: "Searching vaccination centres available for next 7 days...",
@@ -65,15 +66,8 @@ class App extends Component {
       this.clearState(
         "You can minimize the browser if vaccine is available, you will be notified by sound."
       );
-      var timer = setInterval(async () => {
-        let alert = await checkAvailability(parseInt(this.state.pin));
-        if (alert.length > 0) {
-          //this.speak("Hi, Vaccination centre is available in you area!");
-          this.playAlert();
-          this.setState({
-            loading: "",
-          });
-        }
+      timer = setInterval(async () => {
+        console.log("hii");
       }, 120000);
     } else {
       this.clearState("");
