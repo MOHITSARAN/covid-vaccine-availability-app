@@ -70,7 +70,8 @@ class App extends Component {
       var timer = setInterval(async () => {
         let alert = await checkAvailability(parseInt(this.state.pin));
         if (alert.length > 0) {
-          this.speak("Hi, Vaccination centre is available in you area!");
+          //this.speak("Hi, Vaccination centre is available in you area!");
+          this.playAlert();
           clearInterval(timer);
           this.setState({
             loading: "",
@@ -79,7 +80,8 @@ class App extends Component {
       }, 120000);
     } else {
       this.clearState("");
-      this.speak("Hi, Vaccination centre is available in you area!");
+      //this.speak("Hi, Vaccination centre is available in you area!");
+      this.playAlert();
     }
 
     this.setState({ result: results });
