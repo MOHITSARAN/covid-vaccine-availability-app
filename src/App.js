@@ -73,7 +73,7 @@ class App extends Component {
             loading: "",
           });
         }
-      }, 120000);
+      }, 300000);
     } else {
       this.clearState("");
       this.playAlert();
