@@ -46,9 +46,7 @@ class App extends Component {
   };
 
   playAlert = () => {
-    var audio = new Audio(
-      "https://assets.mixkit.co/sfx/preview/mixkit-clear-announce-tones-2861.mp3"
-    );
+    var audio = new Audio("https://cv19as.herokuapp.com/alert.mp3");
     audio.play();
   };
 
@@ -72,7 +70,6 @@ class App extends Component {
         if (alert.length > 0) {
           //this.speak("Hi, Vaccination centre is available in you area!");
           this.playAlert();
-          clearInterval(timer);
           this.setState({
             loading: "",
           });
