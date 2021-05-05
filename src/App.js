@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       pin: 0,
       result: [],
-      loading: "Only vaccine available addresses will be listed below. ",
+      loading: "Data will be displayed based on the availability. ",
       total_doses: 0,
       today_doses: 0,
     };
@@ -131,10 +131,10 @@ class App extends Component {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Name</th>
-                <th>Available Capacity</th>
-                <th>Min Age Limit</th>
-                <th>Vaccine</th>
+                <th>Vaccine Centre</th>
+                <th>Available Quantity</th>
+                <th>Min. Age Limit</th>
+                <th>Vaccine Name</th>
                 <th>Location</th>
                 <th>Book</th>
               </tr>
@@ -186,13 +186,12 @@ class App extends Component {
             manner. This application is only developed to track the availability
             of vaccination centres available nearby.
             <br></br>
-            Developer:{" "}
-            <i>
-              Mohit Saran{" "}
-              <a href='https://www.linkedin.com/in/mohitsaran/'>
-                <i className='material-icons user'>&#xe7fd;</i>
-              </a>
-            </i>
+            {/* <br></br>
+            <span className='logo'>
+              {" "}
+              "Lowe’s India Initiative- Powered By ISG-SSDC”
+            </span>{" "} */}
+            <i>Developer: Mohit Saran </i>
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'

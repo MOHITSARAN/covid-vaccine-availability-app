@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  font-family: sans-serif;
 }
 
 .info {
@@ -78,6 +79,9 @@ table th {
   width: 4%;
 }
 
+.logo {
+  font-size: 13px;
+}
 @media only screen and (max-width: 600px) {
   .visit {
     float: right;
@@ -89,7 +93,7 @@ table th {
 }
 
 .chip {
-  width: 400px;
+  width: 410px;
   color: #4c7caf;
   margin: 0 auto;
   padding: 0 25px;
