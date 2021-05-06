@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { checkAvailability, getTotalDose } from "./service";
 import "./style.css";
+import Push from "push.js";
 
 class App extends Component {
   constructor(props) {
@@ -76,12 +77,18 @@ class App extends Component {
           this.setState({
             loading: "",
           });
+          Push.create(
+            "Hello covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!"
+          );
           this.setResults(alert_result);
         }
       }, 120000);
     } else {
       this.clearState("");
       this.setResults(results);
+      Push.create(
+        "Hello covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!"
+      );
       this.playAlert();
     }
   };
