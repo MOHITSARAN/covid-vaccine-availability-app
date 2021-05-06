@@ -16,7 +16,7 @@ async function getTotalDose() {
     })
     .catch(function (error) {
       alert(
-        "Please try to access this site using India west or India south GP gateways."
+        "Lowe's employees- Please try to access this site using India west or India south GP gateways"
       );
       return Promise.reject(error);
     });
