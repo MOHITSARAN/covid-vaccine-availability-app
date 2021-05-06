@@ -18,6 +18,10 @@ class App extends Component {
     this.setState({ pin: event.target.value });
   };
 
+  setResults = args => {
+    this.setState({ result: args });
+  };
+
   // say a message
   speak = (text, callback) => {
     var u = new SpeechSynthesisUtterance();
@@ -66,20 +70,20 @@ class App extends Component {
         "You can minimize the browser, if vaccine is available you will be notified by sound."
       );
       var timer = setInterval(async () => {
-        let alert = await checkAvailability(parseInt(this.state.pin));
-        if (alert.length > 0) {
+        let alert_result = await checkAvailability(parseInt(this.state.pin));
+        if (alert_result.length > 0) {
           this.playAlert();
           this.setState({
             loading: "",
           });
+          this.setResults(alert_result);
         }
-      }, 300000);
+      }, 120000);
     } else {
       this.clearState("");
+      this.setResults(results);
       this.playAlert();
     }
-
-    this.setState({ result: results });
   };
 
   async componentDidMount() {
