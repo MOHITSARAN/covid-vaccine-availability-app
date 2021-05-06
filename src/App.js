@@ -23,6 +23,18 @@ class App extends Component {
     this.setState({ result: args });
   };
 
+  notifyAlert = e => {
+    Push.create("Hello", {
+      body:
+        "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
+      timeout: 120000,
+      onClick: function () {
+        window.focus();
+        this.close();
+      },
+    });
+  };
+
   // say a message
   speak = (text, callback) => {
     var u = new SpeechSynthesisUtterance();
@@ -82,30 +94,14 @@ class App extends Component {
             loading: "",
           });
           this.setResults(alert_result);
-          Push.create("Hello", {
-            body:
-              "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
-            timeout: 120000,
-            onClick: function () {
-              window.focus();
-              this.close();
-            },
-          });
+          this.notifyAlert();
         }
       }, 120000);
     } else {
       this.clearState("");
       this.setResults(results);
       this.playAlert();
-      Push.create("Hello", {
-        body:
-          "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
-        timeout: 120000,
-        onClick: function () {
-          window.focus();
-          this.close();
-        },
-      });
+      this.notifyAlert();
     }
   };
 
