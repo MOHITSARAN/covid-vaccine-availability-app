@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pin: 0,
+      pin: "",
       result: [],
       loading: "Data will be displayed based on the availability. ",
       total_doses: 0,
@@ -57,6 +57,10 @@ class App extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
+    if (this.state.pin.length != 6) {
+      alert("Please enter valid Pincode!");
+      return;
+    }
     this.setState({ result: [] });
     this.setState({
       loading: "Searching vaccination centres available for next 7 days...",
@@ -78,18 +82,30 @@ class App extends Component {
             loading: "",
           });
           this.setResults(alert_result);
-          Push.create(
-            "Hello covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!"
-          );
+          Push.create("Hello", {
+            body:
+              "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
+            timeout: 120000,
+            onClick: function () {
+              window.focus();
+              this.close();
+            },
+          });
         }
       }, 120000);
     } else {
       this.clearState("");
       this.setResults(results);
       this.playAlert();
-      Push.create(
-        "Hello covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!"
-      );
+      Push.create("Hello", {
+        body:
+          "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
+        timeout: 120000,
+        onClick: function () {
+          window.focus();
+          this.close();
+        },
+      });
     }
   };
 
@@ -115,7 +131,7 @@ class App extends Component {
             <input
               type='number'
               className='searchTerm'
-              value={this.state.term}
+              value={this.state.pin}
               onChange={this.onChange}
               placeholder='Enter Pincode'
             />

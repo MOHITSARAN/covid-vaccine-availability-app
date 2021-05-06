@@ -40,7 +40,6 @@ async function getSlotsForDate(PINCODE, DATE) {
       return response;
     })
     .catch(function (error) {
-      alert("Please enter valid Pincode!");
       return Promise.reject(error);
     });
 }
