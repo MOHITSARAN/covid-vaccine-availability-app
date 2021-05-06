@@ -15,7 +15,9 @@ async function getTotalDose() {
       return response.data.topBlock.vaccination;
     })
     .catch(function (error) {
-      console.log(error);
+      alert(
+        "Please try to access this site using India west or India south GP gateways."
+      );
       return Promise.reject(error);
     });
 }
@@ -38,7 +40,7 @@ async function getSlotsForDate(PINCODE, DATE) {
       return response;
     })
     .catch(function (error) {
-      alert("Please enter valid Pincode!!!");
+      alert("Please enter valid Pincode!");
       return Promise.reject(error);
     });
 }
