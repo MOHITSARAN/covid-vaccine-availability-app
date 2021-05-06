@@ -187,8 +187,8 @@ class App extends Component {
         <footer id='footer'>
           <div className='foot'>
             This application is not related/affiliated to cowin.gov.in in any
-            manner.[9:26 am] Nair, Anoop This application is developed to track
-            the Covid vaccine availability in the nearest centre. <br></br>
+            manner. This application is developed to track the Covid vaccine
+            availability in the nearest centre. <br></br>
             {/* <br></br>
             <span className='logo'>
               {" "}
