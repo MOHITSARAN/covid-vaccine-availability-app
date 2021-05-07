@@ -92,6 +92,11 @@ table th {
   }
 }
 
+.linkedin {
+  position: absolute;
+  padding-left: 5px;
+}
+
 .chip {
   width: 410px;
   color: #4c7caf;

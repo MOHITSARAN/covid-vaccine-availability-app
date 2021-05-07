@@ -220,12 +220,11 @@ class App extends Component {
             This application is not related/affiliated to cowin.gov.in in any
             manner. This application is developed to track the Covid vaccine
             availability in the nearest centre. <br></br>
-            {/* <br></br>
-            <span className='logo'>
+            <i>Developer: Mohit Saran (Lowe's)</i>
+            <a href='https://www.linkedin.com/in/mohitsaran/' target='__blank'>
               {" "}
-              "Lowe’s India Initiative- Powered By ISG-SSDC”
-            </span>{" "} */}
-            <i>Developer: Mohit Saran (Lowe's) </i>
+              <img src='linkedin.png' className='linkedin' />
+            </a>
             <img
               src='https://hitwebcounter.com/counter/counter.php?page=7807640&style=0025&nbdigits=5&type=ip&initCount=97'
               title='Free Counter'
