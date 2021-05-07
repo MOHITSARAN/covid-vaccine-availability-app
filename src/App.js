@@ -67,6 +67,17 @@ class App extends Component {
     audio.play();
   };
 
+  playAlert3Times = () => {
+    var x = 0;
+    var intervalID = setInterval(function () {
+      var audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
+      audio.play();
+      if (++x === 3) {
+        window.clearInterval(intervalID);
+      }
+    }, 60000);
+  };
+
   handleSubmit = async event => {
     event.preventDefault();
     if (this.state.pin.length != 6) {
@@ -90,11 +101,13 @@ class App extends Component {
         let alert_result = await checkAvailability(parseInt(this.state.pin));
         if (alert_result.length > 0) {
           this.playAlert();
+          this.playAlert3Times();
           this.setState({
             loading: "",
           });
           this.setResults(alert_result);
           this.notifyAlert();
+          clearInterval(timer);
         }
       }, 120000);
     } else {
