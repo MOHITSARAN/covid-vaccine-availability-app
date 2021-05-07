@@ -101,7 +101,6 @@ class App extends Component {
         let alert_result = await checkAvailability(parseInt(this.state.pin));
         if (alert_result.length > 0) {
           this.playAlert();
-          this.playAlert3Times();
           this.setState({
             loading: "",
           });
