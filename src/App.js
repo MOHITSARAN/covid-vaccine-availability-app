@@ -63,11 +63,14 @@ class App extends Component {
   };
 
   playAlert = () => {
-    try {
-      let audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
-      audio.play();
-    } catch (err) {
-      console.log(err);
+    let audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
+    var playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(_ => {})
+        .catch(error => {
+          console.log(error);
+        });
     }
   };
 
