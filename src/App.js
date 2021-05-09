@@ -99,7 +99,7 @@ class App extends Component {
         );
         var timer = setInterval(async () => {
           that.getAvailability(that.state.pin, 1).then(function (alert_result) {
-            if (alert_result.length == 0) {
+            if (alert_result.length > 0) {
               that.clearState("");
               that.setResults(alert_result);
               that.playAlert();
