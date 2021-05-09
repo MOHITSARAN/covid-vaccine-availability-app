@@ -44,10 +44,10 @@ async function getSlotsForDate(PINCODE, DATE) {
     });
 }
 
-async function fetchNext15Days() {
+async function fetchNext7Days(days) {
   let dates = [];
   let today = moment();
-  for (let i = 0; i <= 7; i++) {
+  for (let i = 0; i <= parseInt(days); i++) {
     let dateString = today.format("DD-MM-YYYY");
     dates.push(dateString);
     today.add(1, "day");
@@ -55,9 +55,9 @@ async function fetchNext15Days() {
   return dates;
 }
 
-async function checkAvailability(pin) {
+async function checkAvailability(pin, days) {
   var slotListArray = [];
-  let datesArray = await fetchNext15Days();
+  let datesArray = await fetchNext7Days(days);
 
   const getSlots = async () => {
     for (let i = 0; i < datesArray.length; i++) {

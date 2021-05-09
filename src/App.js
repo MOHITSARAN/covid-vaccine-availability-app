@@ -63,23 +63,24 @@ class App extends Component {
   };
 
   playAlert = () => {
-    var audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
-    audio.play();
+    try {
+      let audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
+      audio.play();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  playAlert3Times = () => {
-    var x = 0;
-    var intervalID = setInterval(function () {
-      var audio = new Audio("https://cv19as.herokuapp.com/CoVacc.m4a");
-      audio.play();
-      if (++x === 3) {
-        window.clearInterval(intervalID);
-      }
-    }, 60000);
+  getAvailability = (pin, days) => {
+    return new Promise(function (resolve) {
+      const results = checkAvailability(parseInt(pin), days);
+      resolve(results);
+    });
   };
 
   handleSubmit = async event => {
     event.preventDefault();
+    var that = this;
     if (this.state.pin.length != 6) {
       alert("Please enter valid Pincode!");
       return;
@@ -88,33 +89,32 @@ class App extends Component {
     this.setState({
       loading: "Searching vaccination centres available for next 7 days...",
     });
-    const results = await checkAvailability(parseInt(this.state.pin));
-
-    if (results.length == 0) {
-      alert(
-        "No slots available for the given pincode right now.\n\nDon't close the browser. You can minimize the browser, if vaccine is available you will be notified by sound."
-      );
-      this.clearState(
-        "You can minimize the browser, if vaccine is available you will be notified by sound."
-      );
-      var timer = setInterval(async () => {
-        let alert_result = await checkAvailability(parseInt(this.state.pin));
-        if (alert_result.length > 0) {
-          this.playAlert();
-          this.setState({
-            loading: "",
+    this.getAvailability(this.state.pin, 7).then(function (results) {
+      if (results.length == 0) {
+        alert(
+          "No slots available for the given pincode right now.\n\nDon't close the browser. You can minimize the browser, if vaccine is available you will be notified by sound."
+        );
+        that.clearState(
+          "You can minimize the browser, if vaccine is available you will be notified by sound."
+        );
+        var timer = setInterval(async () => {
+          that.getAvailability(that.state.pin, 1).then(function (alert_result) {
+            if (alert_result.length > 0) {
+              that.clearState("");
+              that.setResults(alert_result);
+              that.playAlert();
+              that.notifyAlert();
+              clearInterval(timer);
+            }
           });
-          this.setResults(alert_result);
-          this.notifyAlert();
-          clearInterval(timer);
-        }
-      }, 120000);
-    } else {
-      this.clearState("");
-      this.setResults(results);
-      this.playAlert();
-      this.notifyAlert();
-    }
+        }, 10000);
+      } else {
+        that.clearState("");
+        that.setResults(results);
+        that.playAlert();
+        that.notifyAlert();
+      }
+    });
   };
 
   async componentDidMount() {
