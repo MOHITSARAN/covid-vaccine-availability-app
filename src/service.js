@@ -65,7 +65,7 @@ async function checkAvailability(pin, days) {
       let validSlots = output.data.sessions;
       if (validSlots.length) {
         validSlots.forEach(function (entry) {
-          slotListArray.push(entry);
+          if (entry.available_capacity > 0) slotListArray.push(entry);
         });
       }
     }
