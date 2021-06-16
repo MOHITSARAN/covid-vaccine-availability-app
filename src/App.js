@@ -25,8 +25,7 @@ class App extends Component {
 
   notifyAlert = e => {
     Push.create("Hello", {
-      body:
-        "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
+      body: "Covid Vaccination is available in the given Pin code, Please book the slots in cowin app immediately good luck!",
       timeout: 120000,
       onClick: function () {
         window.focus();
@@ -170,7 +169,9 @@ class App extends Component {
               <tr>
                 <th>Date</th>
                 <th>Vaccine Centre</th>
-                <th>Available Quantity</th>
+                <th>
+                  Available Quantity <br></br>(1st Dose | 2nd Dose)
+                </th>
                 <th>Min. Age Limit</th>
                 <th>Vaccine Name</th>
                 <th>Location</th>
@@ -186,10 +187,22 @@ class App extends Component {
                   <td>
                     {element.available_capacity > 40 ? (
                       <span className='green'>
-                        {element.available_capacity}
+                        {element.available_capacity_dose1}
                       </span>
                     ) : (
-                      <span className='red'>{element.available_capacity}</span>
+                      <span className='red'>
+                        {element.available_capacity_dose1}
+                      </span>
+                    )}{" "}
+                    |{" "}
+                    {element.available_capacity > 40 ? (
+                      <span className='green'>
+                        {element.available_capacity_dose2}
+                      </span>
+                    ) : (
+                      <span className='red'>
+                        {element.available_capacity_dose2}
+                      </span>
                     )}
                   </td>
                   <td>{element.min_age_limit}</td>
