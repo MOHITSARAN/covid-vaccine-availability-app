@@ -1,4 +1,4 @@
-# Covid Vaccine Availability\
+# Covid Vaccine Availability
 #Created a small app in which you need to enter a pin code and you will get information about available vaccination 💉 centres nearby!
 
 Steps to run the Application on Local system -
