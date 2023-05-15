@@ -1,6 +1,9 @@
 # Covid Vaccine Availability
 #Created a small app in which you need to enter a pin code and you will get information about available vaccination 💉 centres nearby!
 
+# Using Co-WIN Public API - https://apisetu.gov.in/directory/api/cowin/cowin-public-v2
+
+
 Steps to run the Application on Local system -
 Open the code in your IDE (ex VS code) & Go to the folder asset-inventory
 
