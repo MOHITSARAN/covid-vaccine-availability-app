@@ -17,5 +17,4 @@ npm run dev
 
 Open http://localhost:3000 to view it in the browser.
 
-
-![alt text](https://media.licdn.com/dms/image/C5622AQFdlpifT7mpIg/feedshare-shrink_1280/0/1620226666918?e=1686787200&v=beta&t=FIBo4SNW9JvTdn7-klRu4qBLKersZME6jNa0IiM_gPo)
+![alt text](https://media.licdn.com/dms/image/C5622AQFdlpifT7mpIg/feedshare-shrink_1280/0/1620226666918?e=1692230400&v=beta&t=k-V1esmIg6bJE2r0mIkNwaLWczqRTJ-ZRccqmKSrU_Y)
